@@ -1,0 +1,400 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sevva\\FactoryQueueSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Api\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\DatabaseSeeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Infrastructure\\Services\\DatabaseSeeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\DashboardService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Infrastructure\\Services\\DashboardService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\DashboardController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Api\\Controllers\\DashboardController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\QueueController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Api\\Controllers\\QueueController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Shipment\\ShipmentStatusResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Application\\DTOs\\Shipment\\ShipmentStatusResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\WeighingService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Infrastructure\\Services\\WeighingService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\ShipmentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Infrastructure\\Services\\ShipmentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\ShipmentsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Api\\Controllers\\ShipmentsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\FactoryQueue.Api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Api\\FactoryQueue.Api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\Interfaces\\IShipmentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Application\\Interfaces\\IShipmentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\Interfaces\\IAuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Application\\Interfaces\\IAuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Auth\\LoginResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Application\\DTOs\\Auth\\LoginResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\Interfaces\\IDashboardService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Application\\Interfaces\\IDashboardService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Dashboard\\DashboardResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Application\\DTOs\\Dashboard\\DashboardResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Auth\\LoginRequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Application\\DTOs\\Auth\\LoginRequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Domain\\Entities\\QueueEntry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Domain\\Entities\\QueueEntry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\AuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Infrastructure\\Services\\AuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Persistence\\FactoryQueueDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Infrastructure\\Persistence\\FactoryQueueDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\AuthController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Api\\Controllers\\AuthController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\FactoryQueue.Api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Program.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Program.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Api\\Program.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAYwGMAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T08:27:23.331Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "src\\FactoryQueue.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-10T08:58:51.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DatabaseSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\DatabaseSeeder.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Infrastructure\\Services\\DatabaseSeeder.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\DatabaseSeeder.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Infrastructure\\Services\\DatabaseSeeder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-10T07:06:55.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "QueueController.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\QueueController.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Api\\Controllers\\QueueController.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\QueueController.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Api\\Controllers\\QueueController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAYwB0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-10T06:13:29.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ShipmentStatusResponse.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Shipment\\ShipmentStatusResponse.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Application\\DTOs\\Shipment\\ShipmentStatusResponse.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Shipment\\ShipmentStatusResponse.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Application\\DTOs\\Shipment\\ShipmentStatusResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T14:08:30.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WeighingService.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\WeighingService.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Infrastructure\\Services\\WeighingService.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\WeighingService.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Infrastructure\\Services\\WeighingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T14:08:13.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ShipmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\ShipmentsController.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Api\\Controllers\\ShipmentsController.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\ShipmentsController.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Api\\Controllers\\ShipmentsController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAuwDMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T14:07:02.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FactoryQueue.Api.csproj",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\FactoryQueue.Api.csproj",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Api\\FactoryQueue.Api.csproj",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\FactoryQueue.Api.csproj",
+              "RelativeToolTip": "src\\FactoryQueue.Api\\FactoryQueue.Api.csproj",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAgwA8AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-07-08T13:53:19.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Application\\Interfaces\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Application\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T13:19:28.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Auth\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Application\\DTOs\\Auth\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Auth\\LoginResponse.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Application\\DTOs\\Auth\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T13:19:07.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Api\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Api\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T12:56:41.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DashboardService.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\DashboardService.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Infrastructure\\Services\\DashboardService.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\DashboardService.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Infrastructure\\Services\\DashboardService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T12:56:12.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IDashboardService.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\Interfaces\\IDashboardService.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Application\\Interfaces\\IDashboardService.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\Interfaces\\IDashboardService.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Application\\Interfaces\\IDashboardService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T12:55:53.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DashboardResponse.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Dashboard\\DashboardResponse.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Application\\DTOs\\Dashboard\\DashboardResponse.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Dashboard\\DashboardResponse.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Application\\DTOs\\Dashboard\\DashboardResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T12:55:22.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Auth\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Application\\DTOs\\Auth\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\DTOs\\Auth\\LoginRequest.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Application\\DTOs\\Auth\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T11:18:52.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "QueueEntry.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Domain\\Entities\\QueueEntry.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Domain\\Entities\\QueueEntry.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Domain\\Entities\\QueueEntry.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Domain\\Entities\\QueueEntry.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T11:09:51.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Infrastructure\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\AuthService.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Infrastructure\\Services\\AuthService.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAgwHYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T10:54:26.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ShipmentService.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\ShipmentService.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Infrastructure\\Services\\ShipmentService.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Services\\ShipmentService.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Infrastructure\\Services\\ShipmentService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAUwEgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T10:18:25.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IShipmentService.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\Interfaces\\IShipmentService.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Application\\Interfaces\\IShipmentService.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Application\\Interfaces\\IShipmentService.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Application\\Interfaces\\IShipmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T10:16:10.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "FactoryQueueDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Persistence\\FactoryQueueDbContext.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Infrastructure\\Persistence\\FactoryQueueDbContext.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Infrastructure\\Persistence\\FactoryQueueDbContext.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Infrastructure\\Persistence\\FactoryQueueDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T08:22:52.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "src\\FactoryQueue.Api\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAYwCoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T08:49:21.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\FactoryQueue.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\sevva\\FactoryQueueSystem\\src\\FactoryQueue.Api\\appsettings.json",
+              "RelativeToolTip": "src\\FactoryQueue.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-08T08:23:50.324Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

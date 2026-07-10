@@ -1,0 +1,15 @@
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\bin\Debug\net9.0\FactoryQueue.Application.deps.json
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\bin\Debug\net9.0\FactoryQueue.Application.dll
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\bin\Debug\net9.0\FactoryQueue.Application.pdb
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\bin\Debug\net9.0\FactoryQueue.Domain.dll
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\bin\Debug\net9.0\FactoryQueue.Domain.pdb
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.csproj.AssemblyReference.cache
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.AssemblyInfoInputs.cache
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.AssemblyInfo.cs
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.csproj.CoreCompileInputs.cache
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQ.D1108533.Up2Date
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.dll
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\refint\FactoryQueue.Application.dll
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.pdb
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\ref\FactoryQueue.Application.dll

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\FactoryQueue.Api",
+    "\\src\\FactoryQueue.Api\\Properties",
+    "\\src\\FactoryQueue.Application",
+    "\\src\\FactoryQueue.Application\\DTOs",
+    "\\src\\FactoryQueue.Application\\DTOs\\Shipment",
+    "\\src\\FactoryQueue.Application\\Interfaces",
+    "\\src\\FactoryQueue.Infrastructure",
+    "\\src\\FactoryQueue.Infrastructure\\Services"
+  ],
+  "SelectedNode": "\\src\\FactoryQueue.Api\\Program.cs",
+  "PreviewInSolutionExplorer": false
+}
