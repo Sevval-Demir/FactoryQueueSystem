@@ -46,11 +46,14 @@ export default function DashboardCard({ title, description, value, color, icon, 
   return (
     <Card
       sx={{
-        height: 158,
-        borderLeft: `6px solid ${color}`,
-        boxShadow: "0 8px 24px rgba(26,68,105,.10)",
+        height: 172,
+        border: "1px solid",
+        borderColor: "divider",
+        borderTop: `5px solid ${color}`,
+        borderRadius: 2,
+        boxShadow: "0 10px 28px rgba(15,23,42,.08)",
         transition: "transform .15s ease, box-shadow .15s ease",
-        "&:hover": { transform: "translateY(-2px)", boxShadow: "0 12px 30px rgba(26,68,105,.16)" },
+        "&:hover": { transform: "translateY(-2px)", boxShadow: "0 16px 36px rgba(15,23,42,.14)" },
       }}
     >
       {onClick ? (

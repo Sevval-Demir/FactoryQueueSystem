@@ -17,9 +17,13 @@ public class DashboardService : IDashboardService
 
     public async Task<DashboardResponse> GetDashboardAsync()
     {
+        var totalWaitingCount = await _context.Shipments.CountAsync(x => x.Status == ShipmentStatus.Waiting);
+
         return new DashboardResponse
         {
-            WaitingCount = await _context.Shipments.CountAsync(x => x.Status == ShipmentStatus.Waiting),
+            WaitingCount = totalWaitingCount,
+
+            TotalWaitingCount = totalWaitingCount,
 
             CalledCount = await _context.Shipments.CountAsync(x => x.Status == ShipmentStatus.Called),
 

@@ -12,12 +12,19 @@ namespace FactoryQueue.Infrastructure.Services;
 public class ShipmentService : IShipmentService
 {
     private readonly FactoryQueueDbContext _context;
-    public ShipmentService(FactoryQueueDbContext context) => _context = context;
+    private readonly IQueueNotificationService _notifications;
+
+    public ShipmentService(FactoryQueueDbContext context, IQueueNotificationService notifications)
+    {
+        _context = context;
+        _notifications = notifications;
+    }
 
     public async Task<ActiveShipmentResponse?> GetActiveShipmentAsync(Guid driverId)
     {
         var shipment = await _context.Shipments
             .Include(s => s.Vehicle)
+            .OrderByDescending(s => s.CreatedAt)
             .FirstOrDefaultAsync(s => s.Vehicle.DriverId == driverId && s.Status != ShipmentStatus.Completed);
 
         return shipment is null
@@ -32,15 +39,55 @@ public class ShipmentService : IShipmentService
             };
     }
 
+    public async Task EnsureNextShipmentForDriverAsync(Guid driverId)
+    {
+        var hasActiveShipment = await _context.Shipments.AnyAsync(s => s.Vehicle.DriverId == driverId && s.Status != ShipmentStatus.Completed);
+        if (hasActiveShipment)
+        {
+            return;
+        }
+
+        var lastCompletedShipment = await _context.Shipments
+            .Include(s => s.Vehicle)
+            .OrderByDescending(s => s.CompletedTime ?? s.CreatedAt)
+            .FirstOrDefaultAsync(s => s.Vehicle.DriverId == driverId && s.Status == ShipmentStatus.Completed);
+
+        if (lastCompletedShipment is null)
+        {
+            return;
+        }
+
+        _context.Shipments.Add(new Shipment
+        {
+            VehicleId = lastCompletedShipment.VehicleId,
+            Status = ShipmentStatus.OnTheWay
+        });
+
+        await _context.SaveChangesAsync();
+    }
+
     public async Task ArriveAsync(Guid shipmentId)
     {
+        await using var transaction = await _context.Database.BeginTransactionAsync(System.Data.IsolationLevel.Serializable);
+
         var shipment = await _context.Shipments.FirstOrDefaultAsync(x => x.Id == shipmentId) ?? throw new NotFoundException("Sevkiyat bulunamadı.");
         if (shipment.Status != ShipmentStatus.OnTheWay) throw new BusinessException("Yalnızca yoldaki sevkiyatlar sıraya alınabilir.");
-        var lastQueueNumber = await _context.QueueEntries.OrderByDescending(q => q.QueueNumber).Select(q => q.QueueNumber).FirstOrDefaultAsync();
+
+        var today = DateTime.Today;
+        var tomorrow = today.AddDays(1);
+        var todayShipmentCount = await _context.Shipments.CountAsync(s =>
+            s.ArrivalTime.HasValue &&
+            s.ArrivalTime.Value >= today &&
+            s.ArrivalTime.Value < tomorrow);
+
+        var now = DateTime.Now;
         shipment.Status = ShipmentStatus.Waiting;
-        shipment.ArrivalTime = DateTime.UtcNow;
-        _context.QueueEntries.Add(new QueueEntry { ShipmentId = shipment.Id, QueueNumber = lastQueueNumber + 1, ArrivedAt = DateTime.UtcNow });
+        shipment.ArrivalTime = now;
+        _context.QueueEntries.Add(new QueueEntry { ShipmentId = shipment.Id, QueueNumber = todayShipmentCount + 1, ArrivedAt = now });
+
         await _context.SaveChangesAsync();
+        await transaction.CommitAsync();
+        await _notifications.QueueUpdatedAsync();
     }
 
     public async Task<ShipmentStatusResponse?> GetStatusAsync(Guid shipmentId)
@@ -50,18 +97,28 @@ public class ShipmentService : IShipmentService
             .Include(x => x.WeighingRecord)
             .FirstOrDefaultAsync(x => x.Id == shipmentId);
 
-        return shipment is null
-            ? null
-            : new ShipmentStatusResponse
-            {
-                ShipmentId = shipment.Id,
-                Status = shipment.Status.ToString(),
-                QueueNumber = shipment.QueueEntry?.QueueNumber,
-                GrossWeight = shipment.WeighingRecord?.GrossWeight,
-                TareWeight = shipment.WeighingRecord?.TareWeight,
-                NetWeight = shipment.WeighingRecord?.NetWeight,
-                CompletedTime = shipment.CompletedTime
-            };
+        if (shipment is null) return null;
+
+        var totalWaitingCount = await _context.Shipments.CountAsync(x => x.Status == ShipmentStatus.Waiting);
+        var vehiclesAheadCount = shipment.QueueEntry?.QueueNumber is int queueNumber
+            ? await _context.Shipments.CountAsync(x =>
+                x.Status == ShipmentStatus.Waiting &&
+                x.QueueEntry != null &&
+                x.QueueEntry.QueueNumber < queueNumber)
+            : 0;
+
+        return new ShipmentStatusResponse
+        {
+            ShipmentId = shipment.Id,
+            Status = shipment.Status.ToString(),
+            QueueNumber = shipment.QueueEntry?.QueueNumber,
+            TotalWaitingCount = totalWaitingCount,
+            VehiclesAheadCount = vehiclesAheadCount,
+            GrossWeight = shipment.WeighingRecord?.GrossWeight,
+            TareWeight = shipment.WeighingRecord?.TareWeight,
+            NetWeight = shipment.WeighingRecord?.NetWeight,
+            CompletedTime = shipment.CompletedTime
+        };
     }
 
     public async Task<List<AdminShipmentDto>> GetAdminShipmentsAsync()

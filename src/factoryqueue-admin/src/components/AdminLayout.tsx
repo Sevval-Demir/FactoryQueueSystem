@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   AppBar,
+  Avatar,
   Box,
-  Button,
   Divider,
   Drawer,
   IconButton,
@@ -17,9 +17,11 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -45,6 +47,14 @@ export default function AdminLayout() {
   const role = localStorage.getItem("role");
   const desktopWidth = collapsed ? collapsedWidth : expandedWidth;
   const fullName = localStorage.getItem("fullName") || "Admin";
+  const initials =
+    fullName
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0])
+      .join("")
+      .toUpperCase() || "A";
 
   if (!token || role?.toLowerCase() !== "admin") {
     return <Navigate to="/" replace />;
@@ -68,13 +78,33 @@ export default function AdminLayout() {
       <Toolbar
         sx={{
           justifyContent: isCollapsed ? "center" : "space-between",
-          px: isCollapsed ? 1 : 2,
+          gap: 1.25,
+          px: isCollapsed ? 1 : 2.25,
+          minHeight: 76,
         }}
       >
         {!isCollapsed && (
-          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            Fabrika Kuyruk
-          </Typography>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1.25, minWidth: 0 }}>
+            <Avatar
+              variant="rounded"
+              sx={{
+                width: 42,
+                height: 42,
+                bgcolor: alpha(theme.palette.primary.main, 0.12),
+                color: "primary.main",
+              }}
+            >
+              <FactoryOutlinedIcon />
+            </Avatar>
+            <Box sx={{ minWidth: 0 }}>
+              <Typography variant="subtitle1" noWrap sx={{ fontWeight: 800, letterSpacing: 0 }}>
+                Fabrika Kuyruk
+              </Typography>
+              <Typography variant="caption" noWrap sx={{ color: "text.secondary", fontWeight: 600 }}>
+                Operasyon Paneli
+              </Typography>
+            </Box>
+          </Box>
         )}
         {!isMobile && (
           <Tooltip title={isCollapsed ? "Menüyü aç" : "Menüyü daralt"}>
@@ -85,7 +115,7 @@ export default function AdminLayout() {
         )}
       </Toolbar>
       <Divider />
-      <List sx={{ px: 1 }}>
+      <List sx={{ px: 1.25, py: 2, flex: 1 }}>
         {navItems.map((item) => {
           const selected = location.pathname === item.path;
           return (
@@ -94,32 +124,113 @@ export default function AdminLayout() {
                 selected={selected}
                 onClick={() => go(item.path)}
                 sx={{
-                  borderRadius: 1,
+                  borderRadius: 2,
+                  borderLeft: "3px solid",
+                  borderLeftColor: selected ? "primary.main" : "transparent",
                   justifyContent: isCollapsed ? "center" : "flex-start",
-                  mb: 0.5,
-                  px: isCollapsed ? 1 : 2,
+                  mb: 0.75,
+                  px: isCollapsed ? 1 : 1.75,
+                  py: 1.15,
+                  color: selected ? "primary.main" : "text.secondary",
+                  bgcolor: selected ? alpha(theme.palette.primary.main, 0.1) : "transparent",
+                  "&:hover": {
+                    bgcolor: alpha(theme.palette.primary.main, selected ? 0.14 : 0.08),
+                    color: "primary.main",
+                  },
+                  "&.Mui-selected": {
+                    bgcolor: alpha(theme.palette.primary.main, 0.1),
+                    "&:hover": { bgcolor: alpha(theme.palette.primary.main, 0.14) },
+                  },
                 }}
               >
-                <ListItemIcon sx={{ minWidth: isCollapsed ? 0 : 40, color: selected ? "primary.main" : "inherit" }}>
-                  {item.icon}
-                </ListItemIcon>
-                {!isCollapsed && <ListItemText primary={item.label} />}
+                <ListItemIcon sx={{ minWidth: isCollapsed ? 0 : 40, color: "inherit" }}>{item.icon}</ListItemIcon>
+                {!isCollapsed && (
+                  <ListItemText
+                    primary={
+                      <Typography component="span" sx={{ fontWeight: selected ? 800 : 650, fontSize: 14 }}>
+                        {item.label}
+                      </Typography>
+                    }
+                  />
+                )}
               </ListItemButton>
             </Tooltip>
           );
         })}
       </List>
-      <Box sx={{ mt: "auto", p: isCollapsed ? 1 : 2 }}>
+      <Box
+        sx={{
+          mt: "auto",
+          p: isCollapsed ? 1 : 2,
+          position: "sticky",
+          bottom: 0,
+          bgcolor: "background.paper",
+          borderTop: "1px solid",
+          borderColor: "divider",
+        }}
+      >
+        {!isCollapsed && (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1.25,
+              p: 1.25,
+              mb: 1,
+              borderRadius: 2,
+              bgcolor: alpha(theme.palette.text.primary, 0.04),
+              border: "1px solid",
+              borderColor: "divider",
+            }}
+          >
+            <Avatar sx={{ width: 40, height: 40, bgcolor: "primary.main", fontWeight: 800 }}>{initials}</Avatar>
+            <Box sx={{ minWidth: 0 }}>
+              <Typography noWrap sx={{ fontWeight: 800, fontSize: 14 }}>
+                {fullName}
+              </Typography>
+              <Typography noWrap variant="caption" sx={{ color: "text.secondary", fontWeight: 600 }}>
+                Sistem Yönetici
+              </Typography>
+            </Box>
+          </Box>
+        )}
         {isCollapsed ? (
           <Tooltip title="Çıkış yap" placement="right">
-            <IconButton color="inherit" onClick={logout} sx={{ width: "100%" }}>
+            <IconButton
+              color="inherit"
+              onClick={logout}
+              sx={{
+                width: "100%",
+                borderRadius: 2,
+                color: "error.main",
+                "&:hover": { bgcolor: alpha(theme.palette.error.main, 0.1) },
+              }}
+            >
               <LogoutOutlinedIcon />
             </IconButton>
           </Tooltip>
         ) : (
-          <Button fullWidth color="inherit" startIcon={<LogoutOutlinedIcon />} onClick={logout}>
-            Çıkış Yap
-          </Button>
+          <ListItemButton
+            onClick={logout}
+            sx={{
+              borderRadius: 2,
+              color: "error.main",
+              py: 1.15,
+              px: 1.75,
+              "&:hover": { bgcolor: alpha(theme.palette.error.main, 0.1) },
+            }}
+          >
+            <ListItemIcon sx={{ minWidth: 40, color: "inherit" }}>
+              <LogoutOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText
+              primary={
+                <Typography component="span" sx={{ fontWeight: 800, fontSize: 14 }}>
+                  Çıkış Yap
+                </Typography>
+              }
+            />
+          </ListItemButton>
         )}
       </Box>
     </>
@@ -156,7 +267,10 @@ export default function AdminLayout() {
           open={mobileOpen}
           onClose={() => setMobileOpen(false)}
           ModalProps={{ keepMounted: true }}
-          sx={{ display: { xs: "block", md: "none" }, "& .MuiDrawer-paper": { width: expandedWidth } }}
+          sx={{
+            display: { xs: "block", md: "none" },
+            "& .MuiDrawer-paper": { width: expandedWidth, display: "flex", flexDirection: "column" },
+          }}
         >
           {drawerContent(false)}
         </Drawer>
@@ -169,6 +283,7 @@ export default function AdminLayout() {
               width: desktopWidth,
               boxSizing: "border-box",
               display: "flex",
+              flexDirection: "column",
               overflowX: "hidden",
               transition: theme.transitions.create("width", { duration: theme.transitions.duration.shorter }),
             },

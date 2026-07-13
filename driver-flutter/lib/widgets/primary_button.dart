@@ -16,10 +16,16 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return SizedBox(
       width: double.infinity,
-      height: 54,
+      height: 60,
       child: FilledButton.icon(
+        style: FilledButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          side: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+          textStyle: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+        ),
         onPressed: loading ? null : onPressed,
         icon: loading
             ? const SizedBox(

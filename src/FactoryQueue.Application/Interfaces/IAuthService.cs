@@ -9,4 +9,6 @@ public interface IAuthService
     Task RegisterAdminAsync(AdminRegisterRequest request);
 
     Task<LoginResponse> LoginAsync(LoginRequest request);
+
+    Task SaveVehicleInfoAsync(Guid driverId, SaveVehicleInfoRequest request);
 }

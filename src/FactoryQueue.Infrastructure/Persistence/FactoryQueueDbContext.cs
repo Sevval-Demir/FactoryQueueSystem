@@ -35,6 +35,6 @@ public class FactoryQueueDbContext : DbContext
     .IsUnique();
         modelBuilder.Entity<Vehicle>()
     .HasIndex(v => v.PlateNumber)
-    .IsUnique();
+    .IsUnique(false);
     }
 }

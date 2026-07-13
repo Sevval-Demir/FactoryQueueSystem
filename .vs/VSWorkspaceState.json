@@ -3,7 +3,7 @@
     "",
     "\\src",
     "\\src\\FactoryQueue.Api",
-    "\\src\\FactoryQueue.Api\\Properties",
+    "\\src\\FactoryQueue.Api\\Services",
     "\\src\\FactoryQueue.Application",
     "\\src\\FactoryQueue.Application\\DTOs",
     "\\src\\FactoryQueue.Application\\DTOs\\Shipment",
@@ -11,6 +11,6 @@
     "\\src\\FactoryQueue.Infrastructure",
     "\\src\\FactoryQueue.Infrastructure\\Services"
   ],
-  "SelectedNode": "\\src\\FactoryQueue.Api\\Program.cs",
+  "SelectedNode": "\\src\\FactoryQueue.Api\\appsettings.Development.json",
   "PreviewInSolutionExplorer": false
 }

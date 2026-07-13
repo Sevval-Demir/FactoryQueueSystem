@@ -3,6 +3,11 @@ class ApiConstants {
 
   static const String baseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://192.168.68.105:5221/api',
+    defaultValue: 'http://10.0.2.2:5221/api',
+  );
+
+  static const String queueHubUrl = String.fromEnvironment(
+    'QUEUE_HUB_URL',
+    defaultValue: 'http://10.0.2.2:5221/hubs/queue',
   );
 }

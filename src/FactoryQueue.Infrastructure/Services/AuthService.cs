@@ -18,38 +18,32 @@ public class AuthService : IAuthService
 {
     private readonly FactoryQueueDbContext _context;
     private readonly IConfiguration _configuration;
+    private readonly IShipmentService _shipmentService;
 
     public AuthService(
     FactoryQueueDbContext context,
-    IConfiguration configuration)
+    IConfiguration configuration,
+    IShipmentService shipmentService)
     {
         _context = context;
         _configuration = configuration;
+        _shipmentService = shipmentService;
     }
 
     public async Task RegisterAsync(RegisterRequest request)
     {
         var phone = request.Phone.Trim();
-        var plateNumber = request.PlateNumber.Trim().ToUpperInvariant().Replace(" ", string.Empty);
-        var vehicleType = request.VehicleType.Trim();
         var fullName = request.FullName.Trim();
 
         if (string.IsNullOrWhiteSpace(fullName) ||
             string.IsNullOrWhiteSpace(phone) ||
-            string.IsNullOrWhiteSpace(request.Password) ||
-            string.IsNullOrWhiteSpace(plateNumber) ||
-            string.IsNullOrWhiteSpace(vehicleType))
-            throw new BusinessException("Tüm alanlar zorunludur.");
+            string.IsNullOrWhiteSpace(request.Password))
+            throw new BusinessException("Ad soyad, telefon ve şifre zorunludur.");
 
         var exists = await _context.Users.AnyAsync(x => x.Phone == phone);
 
         if (exists)
             throw new BusinessException("Bu telefon numarası zaten kayıtlı.");
-
-        var plateExists = await _context.Vehicles.AnyAsync(x => x.PlateNumber == plateNumber);
-
-        if (plateExists)
-            throw new BusinessException("Bu plaka zaten kayıtlı.");
 
         var user = new User
         {
@@ -59,22 +53,57 @@ public class AuthService : IAuthService
             Role = UserRole.Driver
         };
 
-        var vehicle = new Vehicle
-        {
-            PlateNumber = plateNumber,
-            VehicleType = vehicleType,
-            Driver = user
-        };
-
-        var shipment = new Shipment
-        {
-            Vehicle = vehicle,
-            Status = ShipmentStatus.OnTheWay
-        };
-
         _context.Users.Add(user);
-        _context.Vehicles.Add(vehicle);
-        _context.Shipments.Add(shipment);
+
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task SaveVehicleInfoAsync(Guid driverId, SaveVehicleInfoRequest request)
+    {
+        var plateNumber = request.PlateNumber.Trim().ToUpperInvariant().Replace(" ", string.Empty);
+        var vehicleType = request.VehicleType.Trim();
+
+        if (string.IsNullOrWhiteSpace(plateNumber) || string.IsNullOrWhiteSpace(vehicleType))
+            throw new BusinessException("Plaka ve araç tipi zorunludur.");
+
+        var driver = await _context.Users.FirstOrDefaultAsync(x => x.Id == driverId && x.Role == UserRole.Driver)
+            ?? throw new NotFoundException("Sürücü bulunamadı.");
+
+        var plateInActiveUse = await _context.Shipments.AnyAsync(x =>
+            x.Status != ShipmentStatus.Completed &&
+            x.Vehicle.PlateNumber == plateNumber &&
+            x.Vehicle.DriverId != driverId);
+
+        if (plateInActiveUse)
+            throw new BusinessException("Bu plaka aktif bir işlemde başka bir sürücüye kayıtlı.");
+
+        var activeShipment = await _context.Shipments
+            .Include(x => x.Vehicle)
+            .FirstOrDefaultAsync(x =>
+                x.Vehicle.DriverId == driverId &&
+                x.Status != ShipmentStatus.Completed);
+
+        if (activeShipment is null)
+        {
+            var vehicle = new Vehicle
+            {
+                DriverId = driver.Id,
+                PlateNumber = plateNumber,
+                VehicleType = vehicleType
+            };
+
+            _context.Vehicles.Add(vehicle);
+            _context.Shipments.Add(new Shipment
+            {
+                Vehicle = vehicle,
+                Status = ShipmentStatus.OnTheWay
+            });
+        }
+        else
+        {
+            activeShipment.Vehicle.PlateNumber = plateNumber;
+            activeShipment.Vehicle.VehicleType = vehicleType;
+        }
 
         await _context.SaveChangesAsync();
     }

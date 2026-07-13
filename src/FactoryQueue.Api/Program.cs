@@ -1,4 +1,6 @@
-using FactoryQueue.Infrastructure.Persistence;
+﻿using FactoryQueue.Infrastructure.Persistence;
+using FactoryQueue.Api.Hubs;
+using FactoryQueue.Api.Services;
 using Microsoft.EntityFrameworkCore;
 using FactoryQueue.Application.Interfaces;
 using FactoryQueue.Infrastructure.Services;
@@ -7,6 +9,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 if (builder.Environment.IsDevelopment())
 {
@@ -18,6 +23,7 @@ if (builder.Environment.IsDevelopment())
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddSignalR();
 
 builder.Services.AddCors(options =>
 {
@@ -26,7 +32,8 @@ builder.Services.AddCors(options =>
         policy
             .WithOrigins("http://localhost:5173")
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
@@ -34,6 +41,21 @@ builder.Services
     .AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"];
+                if (!string.IsNullOrEmpty(accessToken) &&
+                    context.HttpContext.Request.Path.StartsWithSegments("/hubs/queue"))
+                {
+                    context.Token = accessToken;
+                }
+
+                return Task.CompletedTask;
+            }
+        };
+
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -65,7 +87,7 @@ builder.Services.AddSwaggerGen(options =>
         Scheme = "bearer",
         BearerFormat = "JWT",
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Description = "JWT Token girin. �rnek: Bearer eyJhbGciOiJIUzI1NiIs..."
+        Description = "JWT Token girin. Örnek: Bearer eyJhbGciOiJIUzI1NiIs..."
     });
 
     options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
@@ -92,14 +114,15 @@ builder.Services.AddScoped<IQueueService, QueueService>();
 builder.Services.AddScoped<IWeighingService, WeighingService>();
 
 builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddScoped<IQueueNotificationService, SignalRQueueNotificationService>();
 
 var app = builder.Build();
 
-/*using (var scope = app.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
     var seeder = scope.ServiceProvider.GetRequiredService<DatabaseSeeder>();
     await seeder.SeedAsync();
-}*/
+}
 
 if (app.Environment.IsDevelopment())
 {
@@ -116,5 +139,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<QueueHub>("/hubs/queue").RequireAuthorization();
 
 app.Run();
+

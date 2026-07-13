@@ -8,6 +8,7 @@ C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.AssemblyInfoInputs.cache
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.AssemblyInfo.cs
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.csproj.CoreCompileInputs.cache
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.sourcelink.json
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQ.D1108533.Up2Date
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\FactoryQueue.Application.dll
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Application\obj\Debug\net9.0\refint\FactoryQueue.Application.dll

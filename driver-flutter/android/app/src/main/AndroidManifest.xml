@@ -4,8 +4,7 @@
     <application
         android:label="Factory Queue Driver"
         android:name="${applicationName}"
-        android:usesCleartextTraffic="true">
-        <activity
+        android:usesCleartextTraffic="true"> <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"

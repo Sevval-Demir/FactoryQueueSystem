@@ -1,7 +1,9 @@
 using FactoryQueue.Application.DTOs.Auth;
 using FactoryQueue.Application.Exceptions;
 using FactoryQueue.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace FactoryQueue.Api.Controllers;
 
@@ -44,6 +46,7 @@ public class AuthController : ControllerBase
         }
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPost("register/admin")]
     public async Task<IActionResult> RegisterAdmin(AdminRegisterRequest request)
     {
@@ -68,5 +71,28 @@ public class AuthController : ControllerBase
         var result = await _authService.LoginAsync(request);
 
         return Ok(result);
+    }
+
+    [Authorize(Roles = "Driver")]
+    [HttpPost("vehicle")]
+    public async Task<IActionResult> SaveVehicleInfo(SaveVehicleInfoRequest request)
+    {
+        var driverIdValue = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (!Guid.TryParse(driverIdValue, out var driverId))
+            return Unauthorized();
+
+        try
+        {
+            await _authService.SaveVehicleInfoAsync(driverId, request);
+            return Ok("Araç bilgileriniz kaydedildi.");
+        }
+        catch (BusinessException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (NotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
     }
 }

@@ -16,6 +16,8 @@ class Shipment {
     required this.vehicleType,
     required this.status,
     this.queueNumber,
+    this.totalWaitingCount = 0,
+    this.vehiclesAheadCount = 0,
     this.arrivalTime,
     this.grossWeight,
     this.tareWeight,
@@ -28,6 +30,8 @@ class Shipment {
   final String vehicleType;
   final ShipmentStatus status;
   final int? queueNumber;
+  final int totalWaitingCount;
+  final int vehiclesAheadCount;
   final DateTime? arrivalTime;
   final double? grossWeight;
   final double? tareWeight;
@@ -51,6 +55,8 @@ class Shipment {
       vehicleType: vehicleType,
       status: parseShipmentStatus(json['status']),
       queueNumber: _parseInt(json['queueNumber']),
+      totalWaitingCount: _parseInt(json['totalWaitingCount']) ?? 0,
+      vehiclesAheadCount: _parseInt(json['vehiclesAheadCount']) ?? 0,
       arrivalTime: arrivalTime,
       grossWeight: _parseDouble(json['grossWeight']),
       tareWeight: _parseDouble(json['tareWeight']),
@@ -89,26 +95,26 @@ ShipmentStatus parseShipmentStatus(Object? value) {
 
 String shipmentStatusText(ShipmentStatus status) {
   return switch (status) {
-    ShipmentStatus.onTheWay => 'Yolda',
-    ShipmentStatus.waiting => 'Sırada Bekliyor',
-    ShipmentStatus.called => 'Kantara Çağrıldı',
-    ShipmentStatus.onScale => 'Kantarda',
-    ShipmentStatus.unloading => 'Boşaltılıyor',
-    ShipmentStatus.unloadCompleted => 'Boşaltma Tamamlandı',
-    ShipmentStatus.completed => 'Tamamlandı',
+    ShipmentStatus.onTheWay => 'Yolda / Transit',
+    ShipmentStatus.waiting => 'Sırada / Kabul Bekliyor',
+    ShipmentStatus.called => 'Perona Çağrıldı / Kantara İlerliyor',
+    ShipmentStatus.onScale => 'Kantar Tartımında',
+    ShipmentStatus.unloading => 'Boşaltım Alanında',
+    ShipmentStatus.unloadCompleted => 'Boşaltım Tamamlandı / Son Tartım Bekliyor',
+    ShipmentStatus.completed => 'İşlem Tamamlandı / Çıkış Yapıldı',
     ShipmentStatus.unknown => 'Bilinmiyor',
   };
 }
 
 String shipmentStatusDescription(Shipment shipment) {
   return switch (shipment.status) {
-    ShipmentStatus.onTheWay => 'Tesise ulaştığınızda varışınızı bildirin.',
-    ShipmentStatus.waiting => 'Sıradasınız. Sıra numaranız: ${shipment.queueNumber ?? '—'}',
-    ShipmentStatus.called => 'Kantara çağrıldınız. Lütfen kantar alanına ilerleyin.',
-    ShipmentStatus.onScale => 'Tartım işleminiz devam ediyor.',
-    ShipmentStatus.unloading => 'Boşaltma işleminiz devam ediyor.',
-    ShipmentStatus.unloadCompleted => 'Boşaltma tamamlandı. Dara tartımı bekleniyor.',
-    ShipmentStatus.completed => 'Sevkiyatınız tamamlandı.',
+    ShipmentStatus.onTheWay => 'Tesise ulaştığınızda kabul kaydınızı başlatın.',
+    ShipmentStatus.waiting => 'Kabul sırasındasınız. Önünüzde ${shipment.vehiclesAheadCount} araç var.',
+    ShipmentStatus.called => 'Perona çağrıldınız. Kantar/peron alanına ilerleyin.',
+    ShipmentStatus.onScale => 'Kantar tartım süreciniz devam ediyor.',
+    ShipmentStatus.unloading => 'Boşaltım alanında operasyon devam ediyor.',
+    ShipmentStatus.unloadCompleted => 'Boşaltım tamamlandı. Son tartım bekleniyor.',
+    ShipmentStatus.completed => 'İşlem tamamlandı. Çıkış yapabilirsiniz.',
     ShipmentStatus.unknown => 'Sevkiyat durumu alınamadı.',
   };
 }

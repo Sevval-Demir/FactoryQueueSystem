@@ -17,16 +17,8 @@ public class DatabaseSeeder
 
     public async Task SeedAsync()
     {
-        if (await _context.Users.AnyAsync())
+        if (await _context.Users.AnyAsync(x => x.Role == UserRole.Admin))
             return;
-
-        var driver = new User
-        {
-            FullName = "Test Driver",
-            Phone = "05550000001",
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456"),
-            Role = UserRole.Driver
-        };
 
         var admin = new User
         {
@@ -36,26 +28,7 @@ public class DatabaseSeeder
             Role = UserRole.Admin
         };
 
-        _context.Users.AddRange(driver, admin);
-        await _context.SaveChangesAsync();
-
-        var vehicle = new Vehicle
-        {
-            PlateNumber = "34ABC123",
-            VehicleType = "Truck",
-            DriverId = driver.Id
-        };
-
-        _context.Vehicles.Add(vehicle);
-        await _context.SaveChangesAsync();
-
-        var shipment = new Shipment
-        {
-            VehicleId = vehicle.Id,
-            Status = ShipmentStatus.OnTheWay
-        };
-
-        _context.Shipments.Add(shipment);
+        _context.Users.Add(admin);
         await _context.SaveChangesAsync();
     }
 }

@@ -5,6 +5,7 @@ C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Domain\obj\Debug\net9.0\Facto
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Domain\obj\Debug\net9.0\FactoryQueue.Domain.AssemblyInfoInputs.cache
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Domain\obj\Debug\net9.0\FactoryQueue.Domain.AssemblyInfo.cs
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Domain\obj\Debug\net9.0\FactoryQueue.Domain.csproj.CoreCompileInputs.cache
+C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Domain\obj\Debug\net9.0\FactoryQueue.Domain.sourcelink.json
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Domain\obj\Debug\net9.0\FactoryQueue.Domain.dll
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Domain\obj\Debug\net9.0\refint\FactoryQueue.Domain.dll
 C:\Users\sevva\FactoryQueueSystem\src\FactoryQueue.Domain\obj\Debug\net9.0\FactoryQueue.Domain.pdb

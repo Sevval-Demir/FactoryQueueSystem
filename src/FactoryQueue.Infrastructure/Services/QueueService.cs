@@ -1,4 +1,5 @@
-﻿using FactoryQueue.Application.DTOs.Queue;
+using System.Data;
+using FactoryQueue.Application.DTOs.Queue;
 using FactoryQueue.Application.Exceptions;
 using FactoryQueue.Application.Interfaces;
 using FactoryQueue.Domain.Enums;
@@ -9,22 +10,30 @@ namespace FactoryQueue.Infrastructure.Services;
 
 public class QueueService : IQueueService
 {
-    private readonly FactoryQueueDbContext _context;
+    private static readonly ShipmentStatus[] ActiveOperationStatuses =
+    [
+        ShipmentStatus.Called,
+        ShipmentStatus.OnScale,
+        ShipmentStatus.Unloading,
+        ShipmentStatus.UnloadCompleted
+    ];
 
-    public QueueService(FactoryQueueDbContext context)
+    private readonly FactoryQueueDbContext _context;
+    private readonly IQueueNotificationService _notifications;
+
+    public QueueService(FactoryQueueDbContext context, IQueueNotificationService notifications)
     {
         _context = context;
+        _notifications = notifications;
     }
 
     public async Task<List<WaitingQueueResponse>> GetWaitingQueueAsync()
     {
         return await _context.QueueEntries
-    .Include(q => q.Shipment)
-    .ThenInclude(s => s.Vehicle)
-    .Where(q =>
-        q.CalledAt == null &&
-        q.Shipment.Status == ShipmentStatus.Waiting)
-    .OrderBy(q => q.QueueNumber)
+            .Include(q => q.Shipment)
+            .ThenInclude(s => s.Vehicle)
+            .Where(q => q.CalledAt == null && q.Shipment.Status == ShipmentStatus.Waiting)
+            .OrderBy(q => q.QueueNumber)
             .Select(q => new WaitingQueueResponse
             {
                 QueueEntryId = q.Id,
@@ -38,28 +47,34 @@ public class QueueService : IQueueService
 
     public async Task CallVehicleAsync(Guid queueEntryId)
     {
-        // FIFO'daki ilk bekleyen aracı bul
+        await using var transaction = await _context.Database.BeginTransactionAsync(IsolationLevel.Serializable);
+
+        if (await HasActiveOperationAsync())
+            throw new BusinessException("Kantar şu anda meşgul. Mevcut araç işlemini tamamlamadan yeni araç çağrılamaz.");
+
         var firstWaiting = await _context.QueueEntries
             .Include(q => q.Shipment)
-            .Where(q =>
-                q.CalledAt == null &&
-                q.Shipment.Status == ShipmentStatus.Waiting)
+            .Where(q => q.CalledAt == null && q.Shipment.Status == ShipmentStatus.Waiting)
             .OrderBy(q => q.QueueNumber)
             .FirstOrDefaultAsync();
 
         if (firstWaiting == null)
             throw new NotFoundException("Bekleyen araç bulunamadı.");
 
-        if (firstWaiting.CalledAt != null)
-            throw new Exception("Bu araç zaten çağrılmış.");
-
-        // Eğer admin ilk sıradaki aracı değil de başka bir aracı çağırmaya çalışıyorsa engelle
         if (firstWaiting.Id != queueEntryId)
-            throw new ConflictException("FIFO kuralı gereği önce sıradaki araç çağrılmalıdır.");
+            throw new ConflictException("Sadece sıradaki araç çağrılabilir.");
 
         firstWaiting.CalledAt = DateTime.UtcNow;
         firstWaiting.Shipment.Status = ShipmentStatus.Called;
 
         await _context.SaveChangesAsync();
+        await transaction.CommitAsync();
+        await _notifications.QueueUpdatedAsync();
+        await _notifications.ShipmentUpdatedAsync(firstWaiting.ShipmentId);
+    }
+
+    private Task<bool> HasActiveOperationAsync()
+    {
+        return _context.Shipments.AnyAsync(s => ActiveOperationStatuses.Contains(s.Status));
     }
 }

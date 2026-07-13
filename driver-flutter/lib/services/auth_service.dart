@@ -12,8 +12,6 @@ class AuthService {
     required String fullName,
     required String phone,
     required String password,
-    required String plateNumber,
-    required String vehicleType,
   }) async {
     await _client.dio.post(
       '/Auth/register/driver',
@@ -21,6 +19,17 @@ class AuthService {
         'fullName': fullName,
         'phone': phone,
         'password': password,
+      },
+    );
+  }
+
+  Future<void> saveVehicleInfo({
+    required String plateNumber,
+    required String vehicleType,
+  }) async {
+    await _client.dio.post(
+      '/Auth/vehicle',
+      data: {
         'plateNumber': plateNumber,
         'vehicleType': vehicleType,
       },

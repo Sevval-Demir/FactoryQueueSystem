@@ -8,6 +8,10 @@ public class ShipmentStatusResponse
 
     public int? QueueNumber { get; set; }
 
+    public int TotalWaitingCount { get; set; }
+
+    public int VehiclesAheadCount { get; set; }
+
     public decimal? GrossWeight { get; set; }
 
     public decimal? TareWeight { get; set; }
