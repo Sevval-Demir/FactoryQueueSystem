@@ -1,0 +1,62 @@
+# =========================================================================
+# FACTORY QUEUE SYSTEM - GLOBAL GITIGNORE
+# =========================================================================
+
+# --- Logs & Debugging ---
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- Node.js / React Web Admin (factory-queueadmin) ---
+node_modules/
+dist/
+dist-ssr/
+*.local
+.eslintcache
+
+# --- Flutter Mobile (driver-flutter) ---
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+android/local.properties
+android/key.properties
+*.jks
+*.keystore
+
+# --- Editor & IDE Directories ---
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.docstates
+*.sw?
+
+# =========================================================================
+# .NET 8 / C# Backend Core Settings
+# =========================================================================
+bin/
+obj/
+*.user
+*.userosscache
+appsettings.Development.json
+publish/
+Autogen/
+
+# =========================================================================
+# Database & Local Storage Files
+# =========================================================================
+# Yerel veritabanı dosyalarının ve loglarının GitHub'a gitmesini engeller
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
