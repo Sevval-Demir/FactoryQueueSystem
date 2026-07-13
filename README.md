@@ -117,11 +117,3 @@ flutter run
 ```
 
 > ⚠️ **Önemli Not:** Android Emülatör üzerinden yerel bilgisayarınızdaki (localhost) API'ye bağlanırken bağlantı adresini `http://10.0.2.2:{PORT}/api/` köprüsüyle güncellemeyi unutmayınız.
-
----
-
-## 🎯 Production Yayına Alım Notları
-
-- Canlı ortamda Admin Register ucu güvenlik sebebiyle kapatılmalıdır.
-- User ve Vehicle kayıtları için veri kaybını önlemek adına Soft Delete mekanizması uygulanmaktadır; Shipment geçmişi ise denetim (Audit) amacıyla fiziksel olarak asla silinmez.
-- Eşzamanlı işlemlerde yarış durumunu (Race Condition) engellemek amacıyla veritabanı seviyesinde RowVersion tabanlı Optimistic Concurrency protokolü işletilir.
